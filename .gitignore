@@ -1,3 +1,4 @@
 
 # Secretos locales del proyecto PDD
 pdd-pitch/.env
+__pycache__/
