@@ -1,0 +1,63 @@
+{
+  "_nota": "Capturado el 2026-11-20. Montos en RMB millones salvo indicación. Estado: 'xbrl' = SEC companyfacts (20-F); 'secundaria' = cobertura de prensa que cita el comunicado; 'no_resuelto' = no verificado. El comunicado oficial 6-K de Q3 2026 devolvió 403 desde este entorno.",
+  "ingresos": {
+    "FY2024": {"valor": 393836.1, "estado": "xbrl"},
+    "FY2025": {"valor": 431845.7, "estado": "xbrl"},
+    "Q1_2025": {"valor": 95700, "estado": "secundaria", "nota": "derivado de Q1 2026 (106.2 bn, +11%)"},
+    "Q2_2025": {"valor": 104000, "estado": "secundaria"},
+    "Q3_2025": {"valor": 108300, "estado": "secundaria"},
+    "Q1_2026": {"valor": 106200, "estado": "secundaria", "nota": "+11% a/a; transacción +20%, marketing 49.9 bn"},
+    "Q2_2026": {"valor": 112400, "estado": "secundaria", "nota": "+8% a/a; transacción 54.7 bn (+13%)"},
+    "Q3_2026": {"valor": 108300, "estado": "secundaria", "nota": "plano a/a; marketing 59.8 bn (+12%); transacción 48.5 bn (-12%)"}
+  },
+  "utilidad_operativa_GAAP": {
+    "FY2024": {"valor": 108422.9, "estado": "xbrl"},
+    "FY2025": {"valor": 94624.1, "estado": "secundaria", "nota": "XBRL OperatingIncomeLoss dice 93102.1; diferencia de 1.5 bn sin resolver"},
+    "Q1_2025": {"valor": 16100, "estado": "secundaria"},
+    "Q2_2025": {"valor": 25800, "estado": "secundaria"},
+    "Q3_2025": {"valor": 25025.9, "estado": "secundaria"},
+    "Q1_2026": {"valor": 19600, "estado": "secundaria"},
+    "Q2_2026": {"valor": 27800, "estado": "secundaria"},
+    "Q3_2026": {"valor": 31200, "estado": "secundaria"}
+  },
+  "utilidad_neta_atribuible": {
+    "FY2024": {"valor": 112434.5, "estado": "xbrl"},
+    "FY2025": {"valor": 97842.5, "estado": "xbrl"},
+    "Q1_2025": {"valor": 14700, "estado": "secundaria"},
+    "Q3_2025": {"valor": 29300, "estado": "secundaria"},
+    "Q1_2026": {"valor": 12500, "estado": "secundaria"},
+    "Q2_2026": {"valor": 27200, "estado": "secundaria"},
+    "Q3_2026": {"valor": 29500, "estado": "secundaria"}
+  },
+  "eps_diluido_por_accion_ordinaria_FY2025": {"valor": 16.5, "moneda": "CNY", "estado": "xbrl", "nota": "x4 = por ADS"},
+  "eps_diluido_por_ADS_Q2_2026": {"valor": 18.45, "moneda": "CNY", "estado": "secundaria"},
+  "eps_diluido_por_ADS_Q2_2025": {"valor": 20.75, "moneda": "CNY", "estado": "secundaria"},
+  "ocf": {
+    "FY2025": {"valor": 106938.7, "estado": "xbrl"},
+    "Q1_2026": {"valor": 16400, "estado": "secundaria"},
+    "Q2_2026": {"valor": 25700, "estado": "secundaria"},
+    "Q3_2026": {"valor": null, "estado": "no_resuelto"}
+  },
+  "capex": {"valor": null, "estado": "no_resuelto", "nota": "concepto XBRL de PP&E sin datos recientes; leer el estado de flujos del 20-F"},
+  "balance_30sep2026": {
+    "caja_y_equivalentes": {"valor": 125518, "estado": "secundaria"},
+    "inversiones_corto_plazo": {"valor": 329862, "estado": "secundaria"},
+    "caja_mas_inversiones": {"valor": 455400, "estado": "secundaria", "nota": "coincide con cifra citada por prensa"},
+    "caja_restringida": {"valor": 82197, "estado": "secundaria", "nota": "excluida del total"},
+    "deuda_financiera": {"valor": 0, "estado": "no_resuelto", "nota": "no encontrada en XBRL; confirmar en 20-F"}
+  },
+  "mercado": {
+    "precio_ADS_USD": {"valor": 77.39, "fecha": "2026-11-17", "estado": "secundaria", "nota": "último cierre encontrado; no se halló el cierre del 19 de nov"},
+    "tipo_cambio_CNY_por_USD": {"valor": 6.8, "estado": "no_resuelto", "nota": "aproximado: implícito en las conversiones a USD del comunicado Q2/Q3 2026; FRED DEXCHUS no accesible"},
+    "ADS_equivalentes_millones": {"valor": 1480, "estado": "inferido", "nota": "utilidad neta FY2025 / EPS diluido por ADS (16.5 x 4 = 66)"},
+    "EPS_ADS_consenso_Q3_2026_USD": {"valor": 2.69, "estado": "secundaria", "nota": "estimado de Benzinga; ingresos estimados 17.3 bn USD"},
+    "EPS_ADS_consenso_Q4_2026_USD": {"valor": 2.70, "estado": "secundaria", "nota": "estimado de Benzinga (Q4 2026E)"},
+    "EPS_ADS_Q1_2026_USD": {"valor": 1.38, "estado": "secundaria"},
+    "EPS_ADS_Q2_2026_USD": {"valor": 2.85, "estado": "secundaria", "nota": "no ajustado; estimado previo 2.77"}
+  },
+  "eventos_mercado": [
+    "Q1 2026: resultado por debajo de lo esperado.",
+    "Q2 2026: utilidad operativa +8%, neta -12%; mayor inversión en ecosistema.",
+    "Q3 2026: flat en ingresos; prensa reporta subida de la acción (~12%) el 19 nov. No verificado con precio."
+  ]
+}
