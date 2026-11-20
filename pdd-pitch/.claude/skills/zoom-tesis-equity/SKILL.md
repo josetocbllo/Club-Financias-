@@ -21,6 +21,18 @@ El usuario entrega un ticker (y, opcionalmente, su tesis o sus preguntas). Tú e
 
 Si falta algo no esencial, asume, decláralo en una línea y sigue.
 
+## Ajustes para emisores extranjeros (ADR, p. ej. PDD)
+
+Aplica estos cinco ajustes antes de correr la skill; sin ellos los scripts devuelven series vacías.
+
+| Tema | Ajuste |
+|---|---|
+| Tipo de filing | Anual en **20-F** (y 20-F/A); trimestral en **6-K** (Ex. 99.1). En `serie()` el filtro de `form` incluye `20-F` y `20-F/A`. |
+| Datos trimestrales | Los 6-K no traen XBRL: las cifras trimestrales se leen en las tablas del Ex. 99.1 en texto. |
+| Moneda | Unidad XBRL `CNY` (no `USD`). Tipo de cambio desde FRED `DEXCHUS`; si no responde, `no_resuelto`. |
+| Acciones | 1 ADS = 4 acciones ordinarias. Divide acciones entre 4 y multiplica EPS por acción ordinaria por 4 para llegar a EPS por ADS. |
+| Consenso Yahoo | Revisa `financialCurrency` y si el EPS es por ADS antes de usarlo. |
+
 ## Convenciones (obligatorias)
 
 - Etiqueta cada afirmación relevante: **[Hecho]** (filing o dato de mercado), **[Calculado]** (aritmética propia sobre hechos), **[Atribución]** (prensa o terceros), **[Inferencia]** (razonamiento propio), **[Hipótesis]** (supuesto del modelo).
@@ -109,7 +121,7 @@ def serie(facts, etiquetas, unidad="USD", ns="us-gaap"):
         d = facts["facts"].get(ns, {}).get(e, {}).get("units", {}).get(unidad)
         if d:
             df = pd.DataFrame(d)
-            df = df[df["form"].isin(["10-K", "10-Q", "10-K/A", "10-Q/A"])].copy()
+            df = df[df["form"].isin(["10-K", "10-Q", "10-K/A", "10-Q/A", "20-F", "20-F/A"])].copy()
             df["end"] = pd.to_datetime(df["end"])
             claves = ["end"]
             if "start" in df:
@@ -138,7 +150,7 @@ def ttm(q):
 
 c = cik("NVDA")
 facts = requests.get(f"https://data.sec.gov/api/xbrl/companyfacts/CIK{c}.json", headers=UA).json()
-etq, cfo = serie(facts, ["NetCashProvidedByUsedInOperatingActivities"])
+etq, cfo = serie(facts, ["NetCashProvidedByUsedInOperatingActivities"], unidad="CNY")  # emisor ADR: CNY
 cfo_ttm = ttm(trimestres(cfo))
 _, acciones = serie(facts, ["EntityCommonStockSharesOutstanding"], "shares", ns="dei")
 t = yf.Ticker("NVDA")
